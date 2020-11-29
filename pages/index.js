@@ -1,9 +1,21 @@
+import { useContext } from "react";
 import styled from "styled-components";
-import LandingIllustration from "../components/index/LandingIllustration";
-import LandingText from "../components/index/LandingText";
+import LandingIllustration from "../components/index/landing/LandingIllustration";
+import LandingText from "../components/index/landing/LandingText";
+import Layout from "../components/layout/Layout";
+import HomePage from "../components/index/home/HomePage";
+
+//! Firebase
+import { FirebaseContext } from "../firebase/index";
 
 export default function Home() {
-  return (
+  const { user } = useContext(FirebaseContext);
+
+  return !user ? (
+    <Layout>
+      <HomePage />
+    </Layout>
+  ) : (
     <Container>
       <LandingText />
       <LandingIllustration />

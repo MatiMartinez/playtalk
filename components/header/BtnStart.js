@@ -1,32 +1,11 @@
-import React, { useState } from "react";
-import Modal from "react-modal";
+import Router from "next/router";
+import React from "react";
 import styled from "styled-components";
-import modalStyles from "../../utils/modalStyles";
-import Login from "../authentication/Login";
 
 export default function BtnStart() {
-  const [modalIsOpen, setIsOpen] = useState(false);
-
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function closeModal() {
-    setIsOpen(false);
-  }
-
   return (
     <>
-      <Button onClick={() => openModal()}>Sign Up</Button>
-      <Modal
-        isOpen={modalIsOpen}
-        style={modalStyles}
-        onRequestClose={closeModal}
-        shouldCloseOnOverlayClick={true}
-        ariaHideApp={false}
-      >
-        <Login />
-      </Modal>
+      <Button onClick={() => Router.push("/auth")}>Sign Up</Button>
     </>
   );
 }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Router from "next/router";
 import React from "react";
 import styled from "styled-components";
 
@@ -8,7 +9,13 @@ export default function LandingText() {
       <h1>playtalk</h1>
       <p>Practica hablar cualquier idioma de la manera más divertida</p>
       <ButtonsLeft>
-        <button>Sign Up</button>
+        <button
+          onClick={() => {
+            Router.push("/auth");
+          }}
+        >
+          Sign Up
+        </button>
         <Link href="/about">I want to see more</Link>
       </ButtonsLeft>
     </ContainerLeft>
@@ -40,6 +47,10 @@ const ButtonsLeft = styled.div`
     border: none;
     outline: none;
     cursor: pointer;
+
+    :hover {
+      background: #ab6ce2;
+    }
   }
 
   a {
