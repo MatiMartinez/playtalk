@@ -6,9 +6,9 @@ import Footer from "../footer/Footer";
 
 export default function Layout(props) {
   return (
-    <html>
+    <>
       <Head>
-        <title>App</title>
+        <title>Playtalk</title>
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -16,18 +16,17 @@ export default function Layout(props) {
           crossOrigin="anonymous"
         />
       </Head>
-      <body>
-        <Header />
-        <Main>{props.children}</Main>
-        <Footer />
-      </body>
-    </html>
+      <Header />
+      <Main>{props.children}</Main>
+      <Footer />
+    </>
   );
 }
 
 const Main = styled.main`
-  display: grid;
+  margin: 36px 0;
+  /*display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-column-gap: 2rem;
-  margin: 2rem 2rem;
+  margin: 2rem 2rem;*/
 `;

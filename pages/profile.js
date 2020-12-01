@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Layout from "../components/layout/Layout";
 
+import { FirebaseContext } from "../firebase/index";
+
 export default function profile() {
-  return <Layout>Profile</Layout>;
+  const { user } = useContext(FirebaseContext);
+  return <Layout>{user ? user.displayName : "No user"}</Layout>;
 }

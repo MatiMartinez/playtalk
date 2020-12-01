@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/auth";
+import "firebase/firestore";
 import firebaseConfig from "./config";
 
 class Firebase {
@@ -8,6 +9,7 @@ class Firebase {
       firebase.initializeApp(firebaseConfig);
     }
     this.auth = firebase.auth();
+    this.db = firebase.firestore();
   }
 
   provider = new firebase.auth.GoogleAuthProvider();

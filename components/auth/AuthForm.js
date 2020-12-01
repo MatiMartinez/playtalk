@@ -8,7 +8,7 @@ export default function () {
   async function handleAuth() {
     try {
       await fbase.loginUser();
-      Router.push("/posts");
+      Router.push("/");
     } catch (error) {
       console.log(error.message);
     }

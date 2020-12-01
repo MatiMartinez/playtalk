@@ -10,12 +10,13 @@ export default function useValidate(initialState, validation, fn) {
       const noErrors = Object.keys(errors).length === 0;
       if (noErrors) {
         fn();
+        console.log("Exito");
       }
       setSubmit(false);
     }
-  }, []);
+  }, [errors]);
 
-  function handleChange() {
+  function handleChange(e) {
     setValues({ ...values, [e.target.name]: e.target.value });
   }
 
