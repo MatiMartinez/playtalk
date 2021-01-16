@@ -11,7 +11,7 @@ import { FirebaseContext } from "../firebase/index";
 export default function Home() {
   const { user } = useContext(FirebaseContext);
 
-  return !user ? (
+  return user ? (
     <Layout>
       <HomePage />
     </Layout>

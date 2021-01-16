@@ -3,11 +3,17 @@ import styled from "styled-components";
 import ThreadLeft from "./thread-left/ThreadLeft";
 import ThreadRight from "./thread-right/ThreadRight";
 
-export default function Thread() {
+export default function Thread({ user, date, text, comments, likes }) {
   return (
     <ThreadContainer>
       <ThreadLeft />
-      <ThreadRight />
+      <ThreadRight
+        user={user}
+        date={date}
+        text={text}
+        comments={comments}
+        likes={likes}
+      />
     </ThreadContainer>
   );
 }

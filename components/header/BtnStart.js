@@ -11,7 +11,7 @@ export default function BtnStart() {
 }
 
 const Button = styled.button`
-  background-color: #9748db;
+  background: #9748db;
   color: #ffffff;
   padding: 0.75rem 2rem;
   border-radius: 10px;

@@ -24,9 +24,5 @@ export default function Layout(props) {
 }
 
 const Main = styled.main`
-  margin: 36px 0;
-  /*display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-column-gap: 2rem;
-  margin: 2rem 2rem;*/
+  padding: 36px 0;
 `;

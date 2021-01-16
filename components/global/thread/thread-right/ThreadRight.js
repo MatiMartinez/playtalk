@@ -4,12 +4,12 @@ import ThreadRightBody from "./ThreadRightBody";
 import ThreadRightFooter from "./ThreadRightFooter";
 import ThreadRightHeader from "./ThreadRightHeader";
 
-export default function ThreadRight() {
+export default function ThreadRight({ user, date, text, comments, likes }) {
   return (
     <ThreadRightContainer>
-      <ThreadRightHeader />
-      <ThreadRightBody />
-      <ThreadRightFooter />
+      <ThreadRightHeader user={user} date={date} />
+      <ThreadRightBody text={text} />
+      <ThreadRightFooter comments={comments} likes={likes} />
     </ThreadRightContainer>
   );
 }

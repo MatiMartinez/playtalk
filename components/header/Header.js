@@ -6,6 +6,7 @@ import { FirebaseContext } from "../../firebase/index";
 import Router from "next/router";
 import BtnStart from "./BtnStart";
 import UserDropdown from "./UserDropdown";
+import Search from "./search/Search";
 
 export default function Header() {
   // TODO: User authentication
@@ -22,19 +23,20 @@ export default function Header() {
 
   return (
     <Navegation>
-      <div>
-        <Link href="/">
-          <Brand>playtalk</Brand>
-        </Link>
-      </div>
-      {!user ? (
-        <Nav>
-          <Link href="/posts">Posts</Link>
-          <Link href="/people">Personas</Link>
-          <UserDropdown>
-            <BtnLogout onClick={handleLogout}>Logout</BtnLogout>
-          </UserDropdown>
-        </Nav>
+      <Link href="/">
+        <Brand>playtalk</Brand>
+      </Link>
+      {user ? (
+        <NavContainer>
+          <Search />
+          <Nav>
+            <Link href="/posts">Post</Link>
+            <Link href="/people">People</Link>
+            <UserDropdown>
+              <BtnLogout onClick={handleLogout}>Logout</BtnLogout>
+            </UserDropdown>
+          </Nav>
+        </NavContainer>
       ) : (
         <Nav>
           <BtnStart />
@@ -48,8 +50,7 @@ const Navegation = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: transparent;
-  padding: 24px 112px;
+  padding: 16px 64px;
   background: #ffffff;
 `;
 
@@ -59,7 +60,14 @@ const Brand = styled.h1`
   font-weight: 800;
   font-size: 2rem;
   cursor: pointer;
-  margin: 0;
+  margin: 0 24px 0 0;
+`;
+
+const NavContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 `;
 
 const Nav = styled.nav`
@@ -69,7 +77,7 @@ const Nav = styled.nav`
 
   a {
     margin: 0 1rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 400;
   }
 

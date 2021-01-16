@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function ThreadRightHeader() {
+export default function ThreadRightHeader({ user, date }) {
   return (
     <ThreadRightHeaderContainer>
-      <Username>Donald J. Trump</Username>
+      <Username>{user ? user : ""}</Username>
       <Separator>-</Separator>
-      <Time>2h</Time>
+      <Time>{date}</Time>
     </ThreadRightHeaderContainer>
   );
 }

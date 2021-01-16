@@ -31,7 +31,7 @@ export default function NewThread() {
     }
 
     const thread = {
-      user: "Matias",
+      user: "Matias Martinez",
       text,
       likes: 0,
       comments: [],
@@ -50,7 +50,7 @@ export default function NewThread() {
           onChange={handleChange}
           name="text"
           placeholder="What's on your mind?"
-          rows="4"
+          rows="3"
           maxLength="256"
         />
         <span>{errors.text}</span>
@@ -61,17 +61,17 @@ export default function NewThread() {
 }
 
 const NewPostContainer = styled.div`
-  padding: 16px;
+  background: #ffffff;
+  padding: 8px 16px;
 
   form {
     display: flex;
     flex-direction: column;
-    background: #ffffff;
-    padding: 8px 16px;
   }
 
   p {
     font-size: 0.9rem;
+    margin: 0.5rem 0;
   }
 
   textarea {
@@ -90,7 +90,6 @@ const NewPostContainer = styled.div`
 
   button {
     margin-left: auto;
-    background: transparent;
     background: #cba3ec;
     color: #ffffff;
     padding: 8px 32px;

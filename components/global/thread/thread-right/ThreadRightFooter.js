@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function ThreadRightFooter() {
+export default function ThreadRightFooter({ comments, likes }) {
   return (
     <ThreadRightFooterContainer>
       <Comments>12 comments</Comments>
-      <Likes>20 likes</Likes>
+      <Likes>{likes} likes</Likes>
     </ThreadRightFooterContainer>
   );
 }

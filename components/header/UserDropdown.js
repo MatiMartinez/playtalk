@@ -1,8 +1,14 @@
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
+import { FirebaseContext } from "../../firebase/index";
+
 export default function UserDropdown(props) {
+  //TODO: Firebase
+  const { user } = useContext(FirebaseContext);
+
+  //TODO: Dropdown Menu
   const dropdownRef = useRef(null);
   const [open, setOpen] = useState(false);
 
@@ -31,7 +37,9 @@ export default function UserDropdown(props) {
 
   return (
     <UserPopperContainer>
-      <NavButton onClick={handleDropdown}>Usuario</NavButton>
+      <NavButton onClick={handleDropdown}>
+        <img src={user.photoURL} alt="user" />
+      </NavButton>
       <PopContainer ref={dropdownRef} open={open}>
         <Link href="/profile">Profile</Link>
         <Link href="/profile">Friends</Link>
@@ -47,27 +55,26 @@ const UserPopperContainer = styled.div`
 `;
 
 const NavButton = styled.button`
-  border: none;
-  outline: none;
-  background: transparent;
-  color: #727272;
   margin: 0 1rem;
-  font-size: 1.1rem;
-  cursor: pointer;
+  background: transparent;
+  border-radius: 50%;
+  padding: 0;
 
-  :hover {
-    color: #000000;
+  img {
+    border-radius: 50%;
+    width: 35px;
   }
 `;
 
 const PopContainer = styled.div`
   position: absolute;
   top: calc(24px + 2rem);
-  right: -112px;
+  right: 0;
   border-radius: 0;
   transform: ${(props) => (props.open ? "translateY(0)" : "translateY(-60px)")};
   opacity: ${(props) => (props.open ? 1 : 0)};
   visibility: ${(props) => (props.open ? "visible" : "hidden")};
+  display: none;
   transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
   background: #ffffff;
   box-shadow: 0 0 3px #999999;
